@@ -38,7 +38,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-row items-center mx-auto pt-4">
+    <div className="flex flex-row items-center mx-auto mt-20">
       {isLoggedIn && <Redirect to="/" />}
       <div className="w-11/12 w-full max-w-xs mx-auto">
         <h2 className="sign-title text-3xl text-gray-700 font-medium sm:text-5xl text-center mb-4">

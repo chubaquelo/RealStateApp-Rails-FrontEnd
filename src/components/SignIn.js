@@ -33,7 +33,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex flex-row items-center mx-auto pt-4">
+    <div className="flex flex-row items-center mx-auto pt-4 mt-20">
       {isLoggedIn && <Redirect to="/" />}
       <div className="w-11/12 sm:w-full max-w-xs mx-auto pb-16">
         <h2 className="sign-title text-gray-700 text-3xl font-medium sm:text-5xl text-center mb-4">
