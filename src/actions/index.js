@@ -92,4 +92,4 @@ export const localStorageSignIn = (token) => {
     type: 'LOCAL_STORAGE_SIGN_IN',
     payload: sessionData,
   };
-}
+};
