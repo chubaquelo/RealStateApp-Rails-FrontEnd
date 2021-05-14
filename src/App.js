@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { localStorageSignIn } from './actions';
+import { localStorageSignIn, getProperties } from './actions';
 import SideBar from './components/SideBar';
 import MobileMenu from './components/MobileMenu';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import PropertySheet from './components/PropertySheet';
 import DefaultNotFound from './containers/DefaultNotFound';
 import Lifestyle from './containers/Lifestyle';
+import Properties from './containers/Properties';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const App = () => {
     if (window.localStorage.getItem('sessionID') && !isLoggedIn) {
       dispatch(localStorageSignIn(window.localStorage.getItem('sessionID')));
     }
+    dispatch(getProperties());
   }, []);
 
   return (
@@ -28,14 +31,13 @@ const App = () => {
         </aside>
         <main className="w-full min-h-screen">
           <Switch>
-            <Route path="/sign_up" exact>
-              <SignUp />
-            </Route>
-            <Route path="/sign_in" exact>
-              <SignIn />
-            </Route>
-            <Route path="/lifestyle" exact>
-              <Lifestyle />
+            <Route path="/sign_up" exact component={SignUp} />
+            <Route path="/sign_in" exact component={SignIn} />
+            <Route path="/lifestyle" exact component={Lifestyle} />
+            <Route path="/houses" exact component={Properties} category="houses" />
+            <Route path="/properties/:id" exact component={PropertySheet} />
+            <Route path="/appartments" exact>
+              <Properties category="appartments" />
             </Route>
             <Route path="*">
               <DefaultNotFound />

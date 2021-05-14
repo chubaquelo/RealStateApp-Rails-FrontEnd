@@ -93,3 +93,21 @@ export const localStorageSignIn = (token) => {
     payload: sessionData,
   };
 };
+
+export const getProperties = () => (dispatch) => {
+  axios({
+    method: 'get',
+    url: `${SERVER_URL}/properties`,
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+    },
+  }).then((response) => {
+    dispatch({
+      type: 'GET_PROPERTIES',
+      payload: response.data,
+    });
+  }).catch((error) => {
+    dispatch({ type: 'GET_PROPERTIES_ERROR', payload: error });
+  });
+};

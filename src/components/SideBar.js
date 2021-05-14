@@ -72,7 +72,6 @@ const SideBar = () => {
             <button
               type="button"
               onClick={() => {
-                // setToggleMobileMenu(false);
                 dispatch(signOut(authToken));
               }}
               className="p-3"
